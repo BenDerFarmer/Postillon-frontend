@@ -1,0 +1,42 @@
+package main
+
+templ Home(posts []HomePost) {
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+
+<body>
+  for _, item := range posts {
+  <a class="flex" href={ templ.URL("/post" + item.ID) }>
+    <img src={ item.Image } alt="" />
+    <h1>{ item.Heading }</h1>
+  </a>
+  }
+
+  <form id="search" class="flex">
+    <input type="text" placeholder="search" name="q" />
+    <input type="submit" />
+  </form>
+
+  <div class="footer">
+    Alle Texte stammen von
+    <a href="https: //www.der-postillon.com/" title="Der Postillon">"Der Postillon"</a>
+    und stehen unter
+    <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" target="_blank">CC BY-NC-SA 3.0 DE</a>
+    (nicht-kommerziell)
+  </div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+    }
+  </script>
+</body>
+
+</html>
+}

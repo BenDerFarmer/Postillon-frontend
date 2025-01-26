@@ -1,0 +1,38 @@
+package main
+
+func isNotNil(image Image) bool { return image != Image{} }
+func hasDescription(image Image) bool { return image.Description != "" }
+
+templ imgComponent(post Post, index uint8) {
+if isNotNil(post.Images[index]) {
+<img src={ post.Images[index].Source } alt="" />
+if hasDescription(post.Images[index]) {
+<span>{ post.Images[index].Description }</span>
+}
+}
+}
+
+templ postComponent(post Post) {
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+
+<body>
+  <article>
+    <h1>{ post.Heading }</h1>
+    for index, item := range post.Body {
+    @imgComponent(post, uint8(index))
+    <p>
+      { item }
+    </p>
+    @templ.Raw(post.Extra[uint8(index)])
+    }
+  </article>
+</body>
+
+</html>
+}
