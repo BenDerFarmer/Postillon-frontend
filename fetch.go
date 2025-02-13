@@ -15,7 +15,7 @@ func fetch(url string) Post {
 	post.Extra = make(map[uint8]string)
 
 	c.OnHTML(".entry-title", func(h *colly.HTMLElement) {
-		if strings.ToLower(h.Text) != h.Text {
+		if strings.ToLower(h.Text) != h.Text && post.Heading == "" {
 			post.Heading = h.Text
 		}
 	})
