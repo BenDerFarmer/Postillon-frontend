@@ -81,3 +81,11 @@ form {
   padding: 10px;
   align-items: center;
 }
+
+@media only screen and (min-width: 992px) {
+  article {
+    max-width: 25em;
+    margin: 20px auto;
+    font-size: 43px;
+  }
+}
