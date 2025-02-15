@@ -53,6 +53,7 @@ article {
   max-width: 100%;
   margin: 20px 20px;
   font-size: 43px;
+  word-break: break-word;
 }
 
 article img {
@@ -78,6 +79,7 @@ form {
 }
 
 .footer {
+  margin: 20px auto;
   padding: 10px;
   align-items: center;
 }
@@ -86,6 +88,14 @@ form {
   article {
     max-width: 25em;
     margin: 20px auto;
-    font-size: 43px;
+  }
+
+  .flex {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  a h1 {
+    font-size: 30px;
   }
 }
