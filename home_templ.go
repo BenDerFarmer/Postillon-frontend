@@ -68,7 +68,7 @@ func Home(posts []HomePost) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form id=\"search\" class=\"flex\"><input type=\"text\" placeholder=\"search\" name=\"q\"> <input type=\"submit\"></form><div class=\"footer\">Alle Texte stammen von <a href=\"https: //www.der-postillon.com/\" title=\"Der Postillon\">\"Der Postillon\"</a> und stehen unter <a href=\"http://creativecommons.org/licenses/by-nc-sa/3.0/de/\" target=\"_blank\">CC BY-NC-SA 3.0 DE</a> (nicht-kommerziell)</div><script>\n  </script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form id=\"search\" class=\"flex\"><input type=\"text\" placeholder=\"search\" name=\"q\"> <input type=\"submit\"></form><div class=\"footer\">Alle Texte stammen von <a href=\"https: //www.der-postillon.com/\" title=\"Der Postillon\">\"Der Postillon\"</a> und stehen unter <a href=\"http://creativecommons.org/licenses/by-nc-sa/3.0/de/\" target=\"_blank\">CC BY-NC-SA 3.0 DE</a> (nicht-kommerziell)</div><script>\n    if (\"serviceWorker\" in navigator) {\n      navigator.serviceWorker.register(\"/service-worker.js\")\n    }\n  </script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

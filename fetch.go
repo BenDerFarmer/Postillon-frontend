@@ -3,6 +3,7 @@ package main
 import (
 	"strings"
 
+	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
 )
 
@@ -25,7 +26,9 @@ func fetch(url string) Post {
 		var count uint8 = 0
 
 		e.ForEach("*", func(i int, h *colly.HTMLElement) {
-			if h.Name == "p" {
+			if h.Name == "p" || h.Name == "b" && goquery.NodeName(h.DOM.Parent()) != "p" {
+
+				post.Body = append(post.Body, h.Text)
 				count += 1
 			}
 			if h.Name == "noscript" {
@@ -49,9 +52,7 @@ func fetch(url string) Post {
 		})
 
 		post.ID = e.Request.URL.Path[1 : len(e.Request.URL.Path)-5]
-		e.ForEach("p", func(i int, h *colly.HTMLElement) {
-			post.Body = append(post.Body, h.Text)
-		})
+
 	})
 
 	c.Visit(url)
